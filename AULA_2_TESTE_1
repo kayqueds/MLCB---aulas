@@ -1,0 +1,31 @@
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+
+# 1. Criamos um pequeno conjunto de dados (mensagens + rótulos)
+mensagens = [
+    "Quero fazer um pedido",
+    "Preciso falar com o suporte",
+    "Quais promoções vocês têm hoje?",
+    "Qual o horário de funcionamento?",
+    "Meu produto veio com defeito",
+    "Posso pagar com cartão de crédito?"
+]
+rotulos = ["pedido", "suporte", "promoção", "informação", "suporte", "pagamento"]
+
+# 2. Transformamos as mensagens em vetores numéricos
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(mensagens)  # Ajusta o vocabulário e transforma as mensagens
+
+# 3. Criamos e treinamos o modelo
+modelo = MultinomialNB()
+modelo.fit(X, rotulos)  # O modelo aprende a associar palavras a rótulos
+
+# 4. Interação com o usuário
+while True:
+    nova_mensagem = input("\nDigite uma mensagem (ou 'sair' para encerrar): ")
+    if nova_mensagem.lower() == "sair":
+        break
+    # Transformamos a nova frase e fazemos a previsão
+    X_novo = vectorizer.transform([nova_mensagem])
+    predicao = modelo.predict(X_novo)
+    print(f"Intenção prevista: {predicao[0]}")
