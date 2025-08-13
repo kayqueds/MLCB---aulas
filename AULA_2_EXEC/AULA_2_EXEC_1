@@ -1,1 +1,30 @@
-VCVC
+# ===== Exercício Supervisionado =====
+# Objetivo: Criar um classificador de mensagens para um bot de atendimento acadêmico.
+# Instruções:
+# 1. Crie uma lista de frases (ex: dúvidas sobre matrícula, notas, eventos, biblioteca)
+# 2. Crie a lista de rótulos correspondentes
+# 3. Vetorize as frases com CountVectorizer
+# 4. Treine um modelo Naive Bayes ou outro de sua escolha
+# 5. Teste com uma nova frase e imprima o resultado
+
+# Seu código aqui:
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+
+# 1. Dataset
+frases = [
+    # exemplo: "Quando abre matrícula?", ...
+]
+rotulos = [
+    # exemplo: "matricula", ...
+]
+
+# 2. Vetorização
+# ...
+
+# 3. Modelo
+# ...
+
+# 4. Previsão
+# ...
+
