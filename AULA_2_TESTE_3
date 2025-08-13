@@ -59,7 +59,7 @@ while True:
             else:
                 pos = max(pos - 1, 0)
                 print("← Voltou para", pos)
-        print("🎯 Objetivo alcançado!")
+        print("Objetivo alcançado!")
     except:
         print("Digite um número válido!")
 
