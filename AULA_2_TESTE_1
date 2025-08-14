@@ -1,7 +1,16 @@
+import re
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
-# 1. Criamos um pequeno conjunto de dados (mensagens + rótulos)
+# Função de pré-processamento
+def limpar_texto(texto):
+    texto = texto.lower()  # Converte para minúsculas
+    texto = re.sub(r'[^\w\s]', '', texto)  # Remove pontuação
+    texto = re.sub(r'\d+', '', texto)  # Remove números
+    texto = texto.strip()  # Remove espaços extras
+    return texto
+
+# 1. Conjunto de dados (mensagens + rótulos)
 mensagens = [
     "Quero fazer um pedido",
     "Preciso falar com o suporte",
@@ -12,20 +21,23 @@ mensagens = [
 ]
 rotulos = ["pedido", "suporte", "promoção", "informação", "suporte", "pagamento"]
 
-# 2. Transformamos as mensagens em vetores numéricos
+# 2. Pré-processamento das mensagens
+mensagens_limpas = [limpar_texto(m) for m in mensagens]
+
+# 3. Vetorização
 vectorizer = CountVectorizer()
-X = vectorizer.fit_transform(mensagens)  # Ajusta o vocabulário e transforma as mensagens
+X = vectorizer.fit_transform(mensagens_limpas)
 
-# 3. Criamos e treinamos o modelo
+# 4. Treinamento do modelo
 modelo = MultinomialNB()
-modelo.fit(X, rotulos)  # O modelo aprende a associar palavras a rótulos
+modelo.fit(X, rotulos)
 
-# 4. Interação com o usuário
+# 5. Interação com o usuário
 while True:
     nova_mensagem = input("\nDigite uma mensagem (ou 'sair' para encerrar): ")
     if nova_mensagem.lower() == "sair":
         break
-    # Transformamos a nova frase e fazemos a previsão
-    X_novo = vectorizer.transform([nova_mensagem])
+    nova_mensagem_limpa = limpar_texto(nova_mensagem)
+    X_novo = vectorizer.transform([nova_mensagem_limpa])
     predicao = modelo.predict(X_novo)
     print(f"Intenção prevista: {predicao[0]}")
