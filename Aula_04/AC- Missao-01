@@ -1,4 +1,4 @@
-#TAREFAS DE APRENDIZADO SUPERVISIONADO - Coloque todas as evidências no seu GITHUB e valide as execuções com o professor#
+#TAREFAS DE APRENDIZADO SUPERVISIONADO - Coloque todas as evidências no seu GITHUB e valide as execuções com o professor - Coloque o nome completo apenas dos integrantes presentes#
 
 # ------------------------------------------------------------------------------
 #### TAREFA 1 :  Treine o modelo abaixo colocando mais 4 conjuntos de dados e rode sem erros no VSCODE - Faça teste após o treinamento ###
@@ -220,4 +220,4 @@ print("Complete o código para encontrar os produtos âncora!")
 # print(f"SOLUÇÃO: Características dos Produtos Âncora (Preço, Popularidade):\n{produtos_ancora}")
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
-#### NÃO ESQUEÇA:  TODAS AS EVIDÊNCIA PRECISAM ESTAR NO GITHUB DE VOCÊS ###
+#### NÃO ESQUEÇA:  TODAS AS EVIDÊNCIA PRECISAM ESTAR NO GITHUB DE VOCÊS - Coloque o nome completo apenas dos integrantes presentes ###
