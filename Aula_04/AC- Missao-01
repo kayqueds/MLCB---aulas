@@ -219,4 +219,5 @@ print("Complete o código para encontrar os produtos âncora!")
 # produtos_ancora = modelo_produtos.cluster_centers_
 # print(f"SOLUÇÃO: Características dos Produtos Âncora (Preço, Popularidade):\n{produtos_ancora}")
 # ------------------------------------------------------------------------------
-
+# ------------------------------------------------------------------------------
+#### NÃO ESQUEÇA:  TODAS AS EVIDÊNCIA PRECISAM ESTAR NO GITHUB DE VOCÊS ###
