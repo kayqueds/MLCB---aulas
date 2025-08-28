@@ -1,0 +1,25 @@
+# ===== Exercício Não Supervisionado =====
+# Objetivo: Agrupar frases de um chatbot de turismo.
+# Instruções:
+# 1. Crie uma lista de frases sobre passagens, hospedagem, passeios, restaurantes
+# 2. Vetorize as frases
+# 3. Use KMeans com número de clusters à sua escolha
+# 4. Imprima a qual cluster cada frase pertence
+
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.cluster import KMeans
+
+# 1. Dataset
+frases = [
+    # exemplo: "Quero reservar hotel", ...
+]
+
+# 2. Vetorização
+# ...
+
+# 3. Modelo
+# ...
+
+# 4. Saída
+# ...
+
