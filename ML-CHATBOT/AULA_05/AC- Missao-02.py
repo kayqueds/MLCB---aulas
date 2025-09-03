@@ -1,34 +1,29 @@
-# Exercício 01
-# bibliotecas
+# Instaalando as bibliotecas
+from sklearn.linear_model import LinearRegression
 import numpy as np
-from sklearn.neighbors import KNeighborsClassifier
-# treinamento supervisionado
-print("--- Exercício 1 - Missão 2 (Aprendizado Supervisionado) ---")
 
-# Dados: [nota_prova_1, nota_trabalho_2]
-# Rótulos: 0 = Reprovou, 1 = Passou
-X_treino = np.array([
-    [8, 7], [9, 8], [7, 9], [8, 8],  # Passou
-    [4, 5], [3, 4], [5, 3], [4, 4]   # Reprovou
+print("--- Exercício 2 -  Missão 2 (Aprendizado Supervisionado) ---")
+
+# Dados: [área_m2, numero_quartos]
+# Rótulos: preco_em_milhares_de_reais
+X_imoveis = np.array([
+    [60, 2], [75, 3], [80, 3], # Imóveis menores
+    [120, 3], [150, 4], [200, 4] # Imóveis maiores
 ])
-y_treino = np.array([1, 1, 1, 1, 0, 0, 0, 0])
+y_precos = np.array([150, 200, 230, 310, 400, 500])
 
-# Criando o modelo KNN
-modelo_knn = KNeighborsClassifier(n_neighbors=3)
-modelo_knn.fit(X_treino, y_treino)
+# TODO: Crie uma instância do modelo LinearRegression.
+modelo_regressao = LinearRegression()
 
-# Testando com novos alunos
-aluno_A = np.array([[7, 8]])  # Espera-se que passe (1)
-aluno_B = np.array([[4, 3]])  # Espera-se que reprove (0)
+# TODO: Treine o modelo com os dados de imóveis (X_imoveis, y_precos).
+modelo_regressao.fit(X_imoveis, y_precos)
 
-# Fazendo previsões
-previsao_A = modelo_knn.predict(aluno_A)
-previsao_B = modelo_knn.predict(aluno_B)
+# TODO: Crie um novo imóvel para testar (ex: 100m², 3 quartos).
+imovel_teste = np.array([[100, 3]])
 
-# minha saída
-print(f"Dados de treino (Notas): \n{X_treino}")
-print(f"Rótulos de treino (Situação): {y_treino}")
-print("-" * 20)
-print(f"Previsão para o Aluno A: {'Passou' if previsao_A[0] == 1 else 'Reprovou'}")
-print(f"Previsão para o Aluno B: {'Passou' if previsao_B[0] == 1 else 'Reprovou'}")
+# TODO: Faça a previsão do preço para o novo imóvel.
+preco_previsto = modelo_regressao.predict(imovel_teste)
+
+# print(f"Previsão de preço para um imóvel de 100m² com 3 quartos: R$ {preco_previsto[0]:.2f} mil")
+print(f"previção de preço para um imóvel de 100m² com 3 quartos: R$ {preco_previsto[0]:.2f} mil")
 print("-" * 50, "\n")
