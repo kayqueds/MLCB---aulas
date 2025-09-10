@@ -1,0 +1,60 @@
+"""
+Cada exercício foca em um conceito fundamental do design de ambientes de RL.
+Eles são projetados para serem resolvidos em sequência, construindo o conhecimento passo a passo.
+O objetivo é que os alunos implementem a lógica do ambiente, que é o primeiro passo para dominar o RL.
+
+Instruções para os Alunos
+Para cada exercício, você receberá um cenário e um código-fonte com seções marcadas como # TODO.
+Sua missão é preencher essas seções para que a simulação funcione de acordo com as regras descritas.
+No final de cada exercício, a solução completa é fornecida para sua referência.
+
+Exercício Introdutório: Identificando os Componentes de RL em um Novo Cenário
+Objetivo: Consolidar a compreensão dos conceitos fundamentais do Aprendizado por Reforço (Agente, Ambiente, Estado, Ação, Recompensa, Política e Função de Valor) em um contexto diferente do labirinto.
+Cenário:Imagine que você está construindo um sistema de IA para ensinar um robô-aspirador a limpar eficientemente uma casa. O robô se move em diferentes cômodos, encontra sujeira e, eventualmente, precisa retornar à sua base para recarregar.
+Tarefa:Para este cenário do robô-aspirador, identifique e descreva cada um dos seguintes componentes de Aprendizado por Reforço:
+
+Agente: robô-aspirador
+Ambiente: a casa
+Estado: Posição atual do robô, nível de bateria, quantidade de sujeira detectada
+Ação: Mover para frente, virar à esquerda, virar à direita, iniciar limpeza, retornar à base
+Recompensa (sugira algumas recompensas positivas e negativas):
+- Positivas: Limpar sujeira (+10), Retornar à base com sucesso (+5)
+- Negativas: Bateria baixa (-1), Colidir com obstáculos (-5)
+Política: A política seria uma estratégia que o robô-aspirador seguiria para decidir suas ações com base no estado atual.
+ Por exemplo, se a bateria estiver baixa, o robô voltará à base.
+Função de Valor Q (o que ela tentaria estimar neste contexto?):
+ A função de Valor Q seria usada para estimar o valor esperado de cada ação em um determinado estado.
+ Caso o robô esteja em um cômodo com muita sujeira, a função de Valor Q ajudaria a determinar que iniciar a limpeza é uma ação valiosa.
+
+
+EXERCICIOS PADRÕES
+Setup Inicial (para todos os exercícios):
+Crie um arquivo Python e instale a biblioteca NumPy:
+
+
+---
+"""
+#Solução do Exercício 1:
+# --- Solução Exercício 1 ---
+
+import numpy as np
+import time
+print("\n--- Solução Exercício 1 ---")
+posicao_agente = 0
+objetivo = 6
+recompensa_total = 0
+for passo in range(10):
+    print(f"Passo {passo + 1}: Posição atual = {posicao_agente}")
+    # TODO 1: Atualize a 'posicao_agente' para que ele avance 1 passo.
+    posicao_agente += 1
+
+    # TODO 2: Verifique se o agente alcançou o 'objetivo'.
+    if posicao_agente == objetivo:
+        print(" >> Objetivo alcançado!")
+        recompensa_total += 10
+        break
+    else:
+        # Se não chegou, ele perde 1 ponto de 'recompensa_total' pelo esforço.
+        recompensa_total -= 1
+        time.sleep(0.5)
+print(f"Simulação finalizada! Recompensa total: {recompensa_total}") # Resultado esperado: 5
